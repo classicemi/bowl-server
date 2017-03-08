@@ -1,14 +1,32 @@
 import React, { Component } from 'react'
+import {
+  NavLink
+} from 'react-router-dom'
 
-import DevTools from 'mobx-react-devtools';
+const nav = [{
+  name: 'Home',
+  link: '/'
+}, {
+  name: 'Domains',
+  link: '/domains'
+}, {
+  name: 'Privilege',
+  link: '/privilege'
+}]
 
 class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.nav = nav
+  }
+
   render() {
     return (
       <div id="main-nav">
         <ul>
-          <li><a href="JavaScript:">Domains</a></li>
-          <li><a href="JavaScript:">Privilege</a></li>
+          {this.nav.map(o =>
+            <li><NavLink exact to={o.link} activeClassName="active">{o.name}</NavLink></li>
+          )}
         </ul>
       </div>
     )

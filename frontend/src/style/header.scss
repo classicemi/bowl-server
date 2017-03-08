@@ -27,7 +27,7 @@ header {
       color: #fff;
       font-size: 12px;
       line-height: 40px;
-      &:hover {
+      &:hover, &.active {
         background: rgba(0, 0, 0, .1);
       }
     }
