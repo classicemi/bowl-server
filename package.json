@@ -1,18 +1,5 @@
 {
-  "name": "bowl-server",
-  "version": "0.0.1",
-  "description": "bowl server",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "author": "classicemi <shuang.wu@ele.me>",
-  "license": "MIT",
   "devDependencies": {
-    "expect.js": "^0.3.1",
-    "mocha": "^3.2.0"
+    "lerna": "2.0.0-beta.37"
   }
 }
