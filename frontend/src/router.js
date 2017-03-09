@@ -1,43 +1,30 @@
 import React from 'react'
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  NavLink
 } from 'react-router-dom'
-import createBrowserHistory from 'history/createBrowserHistory'
+import routeMap from './routeMap'
 
 import Header from './components/header'
 import Sidebar from './components/sidebar'
-import Home from './components/home'
-import Domains from './components/domains'
-import Privilege from './components/privilege'
 
-const history = createBrowserHistory()
-
-const pages = [{
-  path: '/',
-  component: Home
-}, {
-  path: '/domains',
-  component: Domains
-}, {
-  path: '/privilege',
-  component: Privilege
-}]
-
-const router = function() {
-  return (
-    <Router history={history}>
-      <div className="wrapper">
-        <Header></Header>
-        <Sidebar></Sidebar>
-        <div className="main">
-          {pages.map(page => 
-            <Route exact path={page.path} component={page.component} />
-          )}
-        </div>
+const router = (props) => (
+  <Router>
+    <div className="wrapper">
+      <Header>
+        {routeMap.map((page, i) =>
+          <NavLink exact key={i} to={page.link} activeClassName="active">{page.name}</NavLink>
+        )}
+      </Header>
+      <Sidebar />
+      <div className="main">
+        {routeMap.map((page, i) => 
+          <Route exact key={i} path={page.link} component={page.component} />
+        )}
       </div>
-    </Router>
-  )
-}
+    </div>
+  </Router>
+)
 
 export default router
